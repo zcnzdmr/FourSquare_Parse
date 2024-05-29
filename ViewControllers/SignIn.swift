@@ -30,7 +30,6 @@ class SignIn: UIViewController {
         view.backgroundColor = .systemBackground
         
         let screenWidth = view.frame.size.width
-        let screenHeight = view.frame.size.height
         
         imagem.frame = view.bounds
         imagem.image = UIImage(named: "one")

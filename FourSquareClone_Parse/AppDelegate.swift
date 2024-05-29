@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+ 
+           let configuration = ParseClientConfiguration {
+               $0.applicationId = "FEP1tNiUToPnKPX7Ga1GTQ4GH3p98gmCVSs0X8OY"
+              $0.clientKey = "rI3gL3xpZD2bgCVARh6nbJr6glJGMIvDdlOEORQu"
+              $0.server = "https://parseapi.back4app.com/"
+          }
+        
+        Parse.initialize(with: configuration)
         
         let singIn = UINavigationController(rootViewController: SignIn())
         

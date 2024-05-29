@@ -6,24 +6,92 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class MapPage: UIViewController {
+    
+    var viewModelNesnesi = MapeVM()
+    
+    var mapKit = MKMapView()
+    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        mapKitFonk()
+        gesture()
+        locationProperties()
+        barButonFonk()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func barButonFonk() {
+        
+        let saveButon = UIBarButtonItem(image: UIImage(systemName: "externaldrive.fill.badge.plus"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(saveData))
+        saveButon.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = saveButon
+        
     }
-    */
+    
+    @objc func saveData() {
+        
+        viewModelNesnesi.saveData(name: Singleton.sharedInstance.name,
+                                  type: Singleton.sharedInstance.type,
+                                  comment: Singleton.sharedInstance.comment,
+                                  latitude: Singleton.sharedInstance.latitude,
+                                  longitude: Singleton.sharedInstance.longitude,
+                                  image: Singleton.sharedInstance.imagem
+        )
+        
+        self.show(HomePage(), sender: nil)
+    }
+    
+    func locationProperties() {
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+    }
+    
+    func gesture() {
+        
+        mapKit.isUserInteractionEnabled  = true
+        let gR = UILongPressGestureRecognizer(target: self, action: #selector(generateAnnotation))
+        gR.minimumPressDuration = 2
+        mapKit.addGestureRecognizer(gR)
+    }
+    
+    @objc func generateAnnotation(gesRec:UILongPressGestureRecognizer) {
+        
+        let annotation = MKPointAnnotation()
+        
+        let touchedLocation = gesRec.location(in: self.mapKit)
+        let touchedCoordinate = mapKit.convert(touchedLocation, toCoordinateFrom: self.mapKit)
+        
+        Singleton.sharedInstance.latitude = touchedCoordinate.latitude
+        Singleton.sharedInstance.longitude = touchedCoordinate.longitude
+        
+        annotation.coordinate = touchedCoordinate
+        annotation.title = Singleton.sharedInstance.name
+        annotation.subtitle = Singleton.sharedInstance.type
+        
+        mapKit.addAnnotation(annotation)
+        
+    }
+    
+    private func mapKitFonk() {
 
+        mapKit.frame = view.bounds
+        let location = CLLocationCoordinate2D(latitude: 39.928674, longitude: 32.869978)
+        let span = MKCoordinateSpan(latitudeDelta: 0.035, longitudeDelta: 0.035)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapKit.setRegion(region, animated: true)
+        view.addSubview(mapKit)
+//        mapKit.delegate = self
+    }
+}
+
+extension MapPage : CLLocationManagerDelegate {
+    
 }
