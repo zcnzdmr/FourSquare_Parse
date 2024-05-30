@@ -18,10 +18,13 @@ class SignIn: UIViewController {
     var buton1 = UIButton()
     var buton2 = UIButton()
     var imagem = UIImageView()
+    
+    var repoObject = Repo()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUIs()
+        repoObject.getData()
 
     }
     

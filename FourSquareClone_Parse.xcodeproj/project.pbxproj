@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9944517D94D47AE74FAFD3FB /* Pods_FourSquareClone_Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9455DE3363EFDFDB3E9DEEE3 /* Pods_FourSquareClone_Parse.framework */; };
 		F538A2B02C060ACE00BD083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2AF2C060ACE00BD083F /* AppDelegate.swift */; };
 		F538A2B22C060ACE00BD083F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2B12C060ACE00BD083F /* SceneDelegate.swift */; };
 		F538A2B42C060ACE00BD083F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2B32C060ACE00BD083F /* SignIn.swift */; };
@@ -17,6 +16,10 @@
 		F538A2C72C060C6600BD083F /* RegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2C62C060C6600BD083F /* RegisterPage.swift */; };
 		F538A2C92C060C7900BD083F /* MapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2C82C060C7900BD083F /* MapPage.swift */; };
 		F538A2CB2C060C8400BD083F /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2CA2C060C8400BD083F /* DetailPage.swift */; };
+		F53EFDA92C08B60A002A0227 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EFDA82C08B60A002A0227 /* HomeVM.swift */; };
+		F54F82B42C089123009522D8 /* Pods_FourSquareClone_Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54F82B32C089123009522D8 /* Pods_FourSquareClone_Parse.framework */; };
+		F54F82B62C08912B009522D8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54F82B52C08912B009522D8 /* RxSwift.framework */; };
+		F54F82B82C08912F009522D8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54F82B72C08912F009522D8 /* Bolts.framework */; };
 		F5ABF0A92C0709C3002269BD /* CollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABF0A82C0709C3002269BD /* CollectCell.swift */; };
 		F5ABF0AB2C071E7F002269BD /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABF0AA2C071E7F002269BD /* Repo.swift */; };
 		F5ABF0AE2C072368002269BD /* MapeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ABF0AD2C072368002269BD /* MapeVM.swift */; };
@@ -27,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		580ED892E830891D4D20F4C5 /* Pods-FourSquareClone_Parse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSquareClone_Parse.debug.xcconfig"; path = "Target Support Files/Pods-FourSquareClone_Parse/Pods-FourSquareClone_Parse.debug.xcconfig"; sourceTree = "<group>"; };
-		9455DE3363EFDFDB3E9DEEE3 /* Pods_FourSquareClone_Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourSquareClone_Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A412D8D5063290324E8FA541 /* Pods-FourSquareClone_Parse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSquareClone_Parse.release.xcconfig"; path = "Target Support Files/Pods-FourSquareClone_Parse/Pods-FourSquareClone_Parse.release.xcconfig"; sourceTree = "<group>"; };
 		F538A2AC2C060ACE00BD083F /* FourSquareClone_Parse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSquareClone_Parse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F538A2AF2C060ACE00BD083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +42,10 @@
 		F538A2C62C060C6600BD083F /* RegisterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPage.swift; sourceTree = "<group>"; };
 		F538A2C82C060C7900BD083F /* MapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPage.swift; sourceTree = "<group>"; };
 		F538A2CA2C060C8400BD083F /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
+		F53EFDA82C08B60A002A0227 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		F54F82B32C089123009522D8 /* Pods_FourSquareClone_Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_FourSquareClone_Parse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54F82B52C08912B009522D8 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54F82B72C08912F009522D8 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5ABF0A82C0709C3002269BD /* CollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectCell.swift; sourceTree = "<group>"; };
 		F5ABF0AA2C071E7F002269BD /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		F5ABF0AD2C072368002269BD /* MapeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapeVM.swift; sourceTree = "<group>"; };
@@ -53,9 +59,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54F82B82C08912F009522D8 /* Bolts.framework in Frameworks */,
+				F54F82B62C08912B009522D8 /* RxSwift.framework in Frameworks */,
+				F54F82B42C089123009522D8 /* Pods_FourSquareClone_Parse.framework in Frameworks */,
 				F5ABF0B22C07262B002269BD /* CoreLocation.framework in Frameworks */,
 				F5ABF0B02C072620002269BD /* MapKit.framework in Frameworks */,
-				9944517D94D47AE74FAFD3FB /* Pods_FourSquareClone_Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,9 +73,11 @@
 		02DBAFD1C0E2C92A25155D93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F54F82B72C08912F009522D8 /* Bolts.framework */,
+				F54F82B52C08912B009522D8 /* RxSwift.framework */,
+				F54F82B32C089123009522D8 /* Pods_FourSquareClone_Parse.framework */,
 				F5ABF0B12C07262B002269BD /* CoreLocation.framework */,
 				F5ABF0AF2C072620002269BD /* MapKit.framework */,
-				9455DE3363EFDFDB3E9DEEE3 /* Pods_FourSquareClone_Parse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F5ABF0AD2C072368002269BD /* MapeVM.swift */,
+				F53EFDA82C08B60A002A0227 /* HomeVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -269,6 +280,7 @@
 				F538A2C72C060C6600BD083F /* RegisterPage.swift in Sources */,
 				F538A2B42C060ACE00BD083F /* SignIn.swift in Sources */,
 				F5ABF0A92C0709C3002269BD /* CollectCell.swift in Sources */,
+				F53EFDA92C08B60A002A0227 /* HomeVM.swift in Sources */,
 				F5ABF0AE2C072368002269BD /* MapeVM.swift in Sources */,
 				F5ABF0AB2C071E7F002269BD /* Repo.swift in Sources */,
 				F538A2B02C060ACE00BD083F /* AppDelegate.swift in Sources */,
@@ -346,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -403,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

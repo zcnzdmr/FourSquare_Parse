@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Parse
+import RxSwift
 
 class HomePage: UIViewController {
     
     var collectionViewm : UICollectionView!
     var searchBar = UISearchBar()
+    var ViewModelNesnesi = HomeVM()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,16 @@ class HomePage: UIViewController {
         titleForHomePage()
         barButonFonk()
     }
+    
+    func veriCekme() {
+        _ = ViewModelNesnesi.listOfPlaces.subscribe(onNext: { liste in
+            DispatchQueue.main.async {
+                self.collectionViewm.reloadData()
+            }
+        })
+        
+    }
+    
     
     private func titleForHomePage() {
         
@@ -32,7 +46,7 @@ class HomePage: UIViewController {
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         
-        var rightButon = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(passToRegisterPage))
+        let rightButon = UIBarButtonItem(image: UIImage(systemName: "folder.badge.plus"), style: .plain, target: self, action: #selector(passToRegisterPage))
         rightButon.tintColor = .black
         navigationItem.rightBarButtonItem = rightButon
     }

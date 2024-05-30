@@ -7,14 +7,18 @@
 
 import Foundation
 import Parse
+import RxSwift
 
 class Repo {
     
+    var listOfPlaces = BehaviorSubject(value: [PFObject]())
     
     // MARK: Parse Veri kaydetme
     func saveData(name:String,type:String,comment:String,latitude:Double,longitude:Double, image: UIImage) {
         
-        let parseObject          = PFObject(className: "Placess") // Önce PF objesi oluşturuyoruz bu bir class.
+        let uuid = UUID().uuidString
+        
+        let parseObject = PFObject(className: "FavoritePlaces") // Önce PF objesi oluşturuyoruz bu bir class.
         
         // Daha sonra sözlük yapısını kullanarak kolon isimlerini parantez içinde verip değerleri karşısına yazıyoruz.
         parseObject["name"]      = name
@@ -23,7 +27,9 @@ class Repo {
         parseObject["latitude"]  = latitude
         parseObject["longitude"] = longitude
         
-        parseObject["image"]     = image
+        if let imagedata = image.pngData() {
+            parseObject["image"] = PFFileObject(name: "\(uuid).jpeg", data: imagedata)
+        }
         
         // en son asenkron şekilde çalışan saveInBackground olan fonk ile kayıt işlemini gerçekleştiriyoruz.
         parseObject.saveInBackground { success, error in
@@ -40,13 +46,13 @@ class Repo {
     func getData() {
         
         // Önce bir PF query oluşturup verilerini çekeceğimiz sınıfın ismini veriyoruz.
-        let query = PFQuery(className: "Placess")
+        let query = PFQuery(className: "FavoritePlaces")
         
-
+        
         // Eğer spesifik olarak belli kolondan belli değerleri çekmek istersek yani filtreleyerek çekmek istersek burda where fonk yardımımıza koşuyor.
-//        query.whereKey(<#T##key: String##String#>, lessThan: <#T##Any#>)
-//        query.whereKey(<#T##key: String##String#>, equalTo: <#T##Any#>)
-//        query.whereKey(<#T##key: String##String#>, contains: <#T##String?#>) gibi fonk.'lar burda kolon ismini key'e yazıp karşısına istediğimiz değeri yazıyoruz.
+        //        query.whereKey(<#T##key: String##String#>, lessThan: <#T##Any#>)
+        //        query.whereKey(<#T##key: String##String#>, equalTo: <#T##Any#>)
+        //        query.whereKey(<#T##key: String##String#>, contains: <#T##String?#>) gibi fonk.'lar burda kolon ismini key'e yazıp karşısına istediğimiz değeri yazıyoruz.
         
         // burada genel olarak bize [PFObjects]? array i vereni seçiyoruz bu tüm kolonları içeriyor.
         query.findObjectsInBackground { objects, error in
@@ -54,14 +60,12 @@ class Repo {
             if error != nil {
                 print(error?.localizedDescription ?? "Error pullings records")
             }else{
-                
-            }
-            
-            
-        }
-        
-    }
-    
-    
+                if let pfObjects = objects {
+                    
+                    self.listOfPlaces.onNext(pfObjects)
 
+                }
+            }
+        }
+    }
 }

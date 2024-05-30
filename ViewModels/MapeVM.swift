@@ -7,13 +7,14 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import Parse
 
 class MapeVM {
     
     var repoNesnesi = Repo()
     
     init() {
-        print("init çalıştı")
     }
     
     func saveData(name:String,type:String,comment:String,latitude:Double,longitude:Double, image: UIImage) {

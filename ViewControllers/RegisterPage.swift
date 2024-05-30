@@ -77,9 +77,6 @@ class RegisterPage: UIViewController {
         butonNext.addTarget(self, action: #selector(passToMapPage), for: UIControl.Event.touchUpInside)
         view.addSubview(butonNext)
         
-        
-        let rightButton = UIBarButtonItem(title: "gex", style: .plain, target: self, action: #selector(pass))
-        navigationItem.rightBarButtonItem = rightButton
     }
     
     @objc func pass() {
@@ -88,10 +85,11 @@ class RegisterPage: UIViewController {
     
     @objc func passToMapPage() {
         
-        if let nameX = textField1.text , let typex = textField2.text , let commentx = textField3.text, let imageData = imageViewm.image?.pngData() {
+        if let nameX = textField1.text , let typex = textField2.text , let commentx = textField3.text {
             Singleton.sharedInstance.name = nameX
             Singleton.sharedInstance.type = typex
             Singleton.sharedInstance.comment = commentx
+            Singleton.sharedInstance.imagem = imageViewm.image!
             self.navigationController?.pushViewController(MapPage(), animated: true)
         }
     }
@@ -113,7 +111,6 @@ extension RegisterPage : UIImagePickerControllerDelegate, UINavigationController
             imageViewm.image = editedImage
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageViewm.image = originalImage
-            Singleton.sharedInstance.imagem = imageViewm.image!
         }
         dismiss(animated: true)
     }
