@@ -27,19 +27,19 @@ class HomePage: UIViewController {
         collectionViewFonk()
         titleForHomePage()
         barButonFonk()
-//        listelerFonk()
         veriCekme()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        veriCekme()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        ViewModelNesnesi.getData()
+//    }
     
     func veriCekme() {
+        
         ViewModelNesnesi.listOfPlaces
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] liste in
-                guard let self = self else { return }
+//            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { /*[weak self] */liste in
+//                guard let self = self else { return }
                 self.pfObjectList = liste
                 
                 self.nameList.removeAll()
@@ -153,8 +153,8 @@ extension HomePage : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let name = nameList[indexPath.row]
         
         cell.imageViewm.image = UIImage(data: imageList[indexPath.row])
-
         cell.cellLabel.text = name
+        
         return cell
     }
     
@@ -163,6 +163,10 @@ extension HomePage : UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let screenWidth = view.frame.size.width
         
         return CGSize(width: (screenWidth - 3) / 2 , height: 180)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
     }
     
 }
