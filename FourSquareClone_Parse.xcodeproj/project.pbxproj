@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F515A8272C09B0A600322841 /* SignVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515A8262C09B0A600322841 /* SignVM.swift */; };
+		F515A8292C09E9BC00322841 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F515A8282C09E9BC00322841 /* Kingfisher.framework */; };
 		F538A2B02C060ACE00BD083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2AF2C060ACE00BD083F /* AppDelegate.swift */; };
 		F538A2B22C060ACE00BD083F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2B12C060ACE00BD083F /* SceneDelegate.swift */; };
 		F538A2B42C060ACE00BD083F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538A2B32C060ACE00BD083F /* SignIn.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		580ED892E830891D4D20F4C5 /* Pods-FourSquareClone_Parse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSquareClone_Parse.debug.xcconfig"; path = "Target Support Files/Pods-FourSquareClone_Parse/Pods-FourSquareClone_Parse.debug.xcconfig"; sourceTree = "<group>"; };
 		A412D8D5063290324E8FA541 /* Pods-FourSquareClone_Parse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourSquareClone_Parse.release.xcconfig"; path = "Target Support Files/Pods-FourSquareClone_Parse/Pods-FourSquareClone_Parse.release.xcconfig"; sourceTree = "<group>"; };
+		F515A8262C09B0A600322841 /* SignVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignVM.swift; sourceTree = "<group>"; };
+		F515A8282C09E9BC00322841 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F538A2AC2C060ACE00BD083F /* FourSquareClone_Parse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourSquareClone_Parse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F538A2AF2C060ACE00BD083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F538A2B12C060ACE00BD083F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F515A8292C09E9BC00322841 /* Kingfisher.framework in Frameworks */,
 				F54F82B82C08912F009522D8 /* Bolts.framework in Frameworks */,
 				F54F82B62C08912B009522D8 /* RxSwift.framework in Frameworks */,
 				F54F82B42C089123009522D8 /* Pods_FourSquareClone_Parse.framework in Frameworks */,
@@ -73,6 +78,7 @@
 		02DBAFD1C0E2C92A25155D93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F515A8282C09E9BC00322841 /* Kingfisher.framework */,
 				F54F82B72C08912F009522D8 /* Bolts.framework */,
 				F54F82B52C08912B009522D8 /* RxSwift.framework */,
 				F54F82B32C089123009522D8 /* Pods_FourSquareClone_Parse.framework */,
@@ -151,6 +157,7 @@
 			children = (
 				F5ABF0AD2C072368002269BD /* MapeVM.swift */,
 				F53EFDA82C08B60A002A0227 /* HomeVM.swift */,
+				F515A8262C09B0A600322841 /* SignVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -284,6 +291,7 @@
 				F5ABF0AE2C072368002269BD /* MapeVM.swift in Sources */,
 				F5ABF0AB2C071E7F002269BD /* Repo.swift in Sources */,
 				F538A2B02C060ACE00BD083F /* AppDelegate.swift in Sources */,
+				F515A8272C09B0A600322841 /* SignVM.swift in Sources */,
 				F5ABF0B52C075038002269BD /* Singleton.swift in Sources */,
 				F538A2C92C060C7900BD083F /* MapPage.swift in Sources */,
 				F538A2B22C060ACE00BD083F /* SceneDelegate.swift in Sources */,

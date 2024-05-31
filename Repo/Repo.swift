@@ -13,6 +13,13 @@ class Repo {
     
     var listOfPlaces = BehaviorSubject(value: [PFObject]())
     
+    
+    func signUpFonk(username:String,email:String) {
+        
+        
+    }
+    
+    
     // MARK: Parse Veri kaydetme
     func saveData(name:String,type:String,comment:String,latitude:Double,longitude:Double, image: UIImage) {
         

@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.9.1)
+  - Kingfisher (7.11.0)
   - Parse (1.19.4):
     - Parse/Core (= 1.19.4)
   - Parse/Core (1.19.4):
@@ -7,20 +8,23 @@ PODS:
   - RxSwift (6.7.1)
 
 DEPENDENCIES:
+  - Kingfisher
   - Parse
   - RxSwift
 
 SPEC REPOS:
   trunk:
     - Bolts
+    - Kingfisher
     - Parse
     - RxSwift
 
 SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   Parse: 6d572042e2c171414c677acabcd9bab7bbf51264
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
 
-PODFILE CHECKSUM: 91212209015cb5939f4d64af86cb4601ab7caf95
+PODFILE CHECKSUM: 2beae7698fb49aaf4d12974b5b710202eaee5be8
 
 COCOAPODS: 1.15.2

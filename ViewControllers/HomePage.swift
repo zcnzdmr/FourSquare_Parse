@@ -8,30 +8,73 @@
 import UIKit
 import Parse
 import RxSwift
+import Kingfisher
 
 class HomePage: UIViewController {
     
     var collectionViewm : UICollectionView!
     var searchBar = UISearchBar()
     var ViewModelNesnesi = HomeVM()
+    var pfObjectList = [PFObject]()
+    var nameList = [String]()
+    var imageList = [Data]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUPUIs()
         collectionViewFonk()
         titleForHomePage()
         barButonFonk()
+//        listelerFonk()
+        veriCekme()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        veriCekme()
     }
     
     func veriCekme() {
-        _ = ViewModelNesnesi.listOfPlaces.subscribe(onNext: { liste in
-            DispatchQueue.main.async {
-                self.collectionViewm.reloadData()
-            }
-        })
-        
+        ViewModelNesnesi.listOfPlaces
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] liste in
+                guard let self = self else { return }
+                self.pfObjectList = liste
+                
+                self.nameList.removeAll()
+                self.imageList.removeAll()
+                
+                let group = DispatchGroup()
+
+                for i in self.pfObjectList {
+                    
+                    if let nameVariable = i["name"] as? String {
+                        self.nameList.append(nameVariable)
+                        print(nameVariable)
+                    }
+                    
+                    if let imageVariable = i["image"] as? PFFileObject {
+                        group.enter()
+                        imageVariable.getDataInBackground { data, error in
+                            if let data = data {
+                                self.imageList.append(data)
+                                print(self.imageList.count)
+                            } else {
+                                print(error?.localizedDescription ?? "Error while pulling image data")
+                            }
+                            group.leave()
+                        }
+                    }
+                }
+
+                group.notify(queue: .main) {
+                    self.collectionViewm.reloadData()
+                }
+            })
+            
     }
+
     
     
     private func titleForHomePage() {
@@ -101,15 +144,17 @@ extension HomePage : UISearchBarDelegate {
 extension HomePage : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return nameList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hucrem", for: indexPath) as! CollectCell
         
-        cell.imageViewm.image = UIImage(named: "Bart")
-//        cell.layer.borderWidth = 0.9
-        cell.cellLabel.text = "Restaurantlar "
+        let name = nameList[indexPath.row]
+        
+        cell.imageViewm.image = UIImage(data: imageList[indexPath.row])
+
+        cell.cellLabel.text = name
         return cell
     }
     

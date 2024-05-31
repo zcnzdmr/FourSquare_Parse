@@ -6,7 +6,8 @@ target 'FourSquareClone_Parse' do
   use_frameworks!
 pod 'Parse'
 pod 'RxSwift'
-
+pod 'Kingfisher'
+ 
   # Pods for FourSquareClone_Parse
 
 end

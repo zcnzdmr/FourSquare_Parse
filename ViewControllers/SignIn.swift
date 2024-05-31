@@ -19,12 +19,12 @@ class SignIn: UIViewController {
     var buton2 = UIButton()
     var imagem = UIImageView()
     
-    var repoObject = Repo()
+    var viewModelNesne = SignVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUIs()
-        repoObject.getData()
+//        repoObject.getData()
 
     }
     

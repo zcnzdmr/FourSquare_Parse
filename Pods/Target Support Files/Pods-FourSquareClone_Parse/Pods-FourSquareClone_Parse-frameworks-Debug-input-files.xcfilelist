@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-FourSquareClone_Parse/Pods-FourSquareClone_Parse-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
