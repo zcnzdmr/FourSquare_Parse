@@ -12,7 +12,11 @@ class SignVM {
     
     var repoNesnesi = Repo()
     
-    func signUpFonk(username:String,email:String) {
-        repoNesnesi.signUpFonk(username: username, email: email)
+    func signUpFonk(email:String,password:String) {
+        repoNesnesi.signUpFonk(email: email, password: password)
+    }
+    
+    func signInFonk(email:String,password:String) {
+        repoNesnesi.signInFonk(email: email, password: password)
     }
 }
