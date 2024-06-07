@@ -62,12 +62,12 @@ class RegisterPage: UIViewController {
         
         textField2.frame = CGRect(x: 20, y: 520, width: screenWidth - 40, height: 40)
 //        textField1.layer.borderWidth = 0.7
-        textField2.placeholder = "Enter the name of Place"
+        textField2.placeholder = "Enter the type of Place"
         textField2.borderStyle = UITextField.BorderStyle.roundedRect
         view.addSubview(textField2)
         
         textField3.frame = CGRect(x: 20, y: 590, width: screenWidth - 40, height: 40)
-        textField3.placeholder = "Enter the name of Place"
+        textField3.placeholder = "Enter the your comment"
         textField3.borderStyle = UITextField.BorderStyle.roundedRect
         view.addSubview(textField3)
         

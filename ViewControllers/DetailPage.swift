@@ -107,6 +107,8 @@ class DetailPage: UIViewController {
             mapKit.setRegion(region, animated: true)
             view.addSubview(mapKit)
             
+            mapKit.delegate = self
+            
             let pin = MKPointAnnotation()
             
             pin.coordinate = location
@@ -114,5 +116,56 @@ class DetailPage: UIViewController {
             pin.subtitle = self.type
             mapKit.addAnnotation(pin)
         }
+    }
+}
+
+extension DetailPage : CLLocationManagerDelegate , MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let reuseID = "idForAnnotation"
+        var pinView = mapKit.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKMarkerAnnotationView
+        
+        if pinView == nil {
+            pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            pinView?.canShowCallout  = true
+            pinView?.tintColor = .systemPink
+            pinView?.subtitleVisibility = MKFeatureVisibility.visible // Subtitle'ın anatasyonda görünürlüğünü ayarlayan kod.
+            
+            let butonPin = UIButton(type: UIButton.ButtonType.infoLight)
+            pinView?.rightCalloutAccessoryView = butonPin
+            
+        }else {
+            pinView?.annotation = annotation
+        }
+
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        
+        let alert = UIAlertController(title: "Route", message: "\(self.name!)'e should a route be created ?", preferredStyle: UIAlertController.Style.alert)
+        
+        let noAction = UIAlertAction(title: "No", style: UIAlertAction.Style.destructive)
+        alert.addAction(noAction)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { action in
+            if let latitudeX = self.latitude , let longitudeX = self.longitude {
+                let destinationCoord = CLLocationCoordinate2D(latitude: latitudeX, longitude: longitudeX)
+                let placeMark = MKPlacemark(coordinate: destinationCoord)
+                let mapItem = MKMapItem(placemark: placeMark)
+                mapItem.name = self.name
+                
+                let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                mapItem.openInMaps(launchOptions: launchOptions)
+        }
+    }
+        alert.addAction(yesAction)
+        present(alert,animated: true)
     }
 }

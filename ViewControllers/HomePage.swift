@@ -190,6 +190,7 @@ class HomePage: UIViewController {
     }
     
     @objc func passToSignIn() {
+        PFUser.logOut()
         self.show(SignInViewController(), sender: nil)
     }
     
@@ -248,7 +249,7 @@ class HomePage: UIViewController {
 extension HomePage : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+     
     }
 }
 
@@ -257,6 +258,7 @@ extension HomePage : UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return nameList.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hucrem", for: indexPath) as! CollectCell

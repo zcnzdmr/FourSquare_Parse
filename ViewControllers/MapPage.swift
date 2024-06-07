@@ -15,11 +15,11 @@ class MapPage: UIViewController {
     
     var mapKit = MKMapView()
     var locationManager = CLLocationManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapKitFonk()
+//        mapKitFonk()
         gesture()
         locationProperties()
         barButonFonk()
@@ -43,7 +43,7 @@ class MapPage: UIViewController {
                                   image: Singleton.sharedInstance.imagem
         )
         
-        self.show(HomePage(), sender: nil)
+        self.navigationController?.pushViewController(HomePage(), animated: true)
     }
     
     func locationProperties() {
@@ -80,18 +80,37 @@ class MapPage: UIViewController {
         
     }
     
-    private func mapKitFonk() {
-
-        mapKit.frame = view.bounds
-        let location = CLLocationCoordinate2D(latitude: 39.928674, longitude: 32.869978)
-        let span = MKCoordinateSpan(latitudeDelta: 0.035, longitudeDelta: 0.035)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapKit.setRegion(region, animated: true)
-        view.addSubview(mapKit)
-//        mapKit.delegate = self
-    }
+    //    private func mapKitFonk() {
+    //
+    //        mapKit.frame = view.bounds
+    //        let location = CLLocationCoordinate2D(latitude: 39.928674, longitude: 32.869978)
+    //        let span = MKCoordinateSpan(latitudeDelta: 0.035, longitudeDelta: 0.035)
+    //        let region = MKCoordinateRegion(center: location, span: span)
+    //        mapKit.setRegion(region, animated: true)
+    //        view.addSubview(mapKit)
+    ////        mapKit.delegate = self
+    //    }
+    //}
 }
 
 extension MapPage : CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location = locations[locations.count-1]
+        
+        let latitudeUpdated = location.coordinate.latitude
+        let longitudeUpdate = location.coordinate.longitude
+        
+        mapKit.frame = view.bounds
+        let locationX = CLLocationCoordinate2D(latitude: latitudeUpdated, longitude: longitudeUpdate)
+        let span = MKCoordinateSpan(latitudeDelta: 0.035, longitudeDelta: 0.035)
+        let region = MKCoordinateRegion(center: locationX, span: span)
+        mapKit.setRegion(region, animated: true)
+        view.addSubview(mapKit)
+        
+    }
+    
+    
     
 }

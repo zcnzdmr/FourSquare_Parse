@@ -68,14 +68,17 @@ class Repo {
         if let imagedata = image.pngData() {
             parseObject["image"] = PFFileObject(name: "\(uuid).jpeg", data: imagedata)
         }
+        let group = DispatchGroup()
         
         // en son asenkron şekilde çalışan saveInBackground olan fonk ile kayıt işlemini gerçekleştiriyoruz.
         parseObject.saveInBackground { success, error in
-            
+            group.enter()
             if error != nil {
                 print(error?.localizedDescription ?? "Error")
             }else{
                 print("başarılı")
+                group.leave()
+                self.getData()
             }
         }
     }

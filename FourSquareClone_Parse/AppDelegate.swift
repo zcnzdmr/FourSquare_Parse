@@ -40,11 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController()
         
         let mainView = SignInViewController(nibName: nil, bundle: nil)
-        let mainView2 = HomePage(nibName: nil, bundle: nil)
+        let homeView = HomePage(nibName: nil, bundle: nil)
         
         let currentUser = PFUser.current()
         if currentUser != nil {
-            nav.viewControllers = [mainView2]
+            nav.viewControllers = [homeView]
             window?.rootViewController = nav
         }else{
             nav.viewControllers = [mainView]
